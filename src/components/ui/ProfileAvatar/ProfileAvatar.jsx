@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router';
 import { AuthContext } from '../../../contexts/AuthContext';
-import { MdLogout } from "react-icons/md";
 import { RiLogoutCircleRLine } from 'react-icons/ri';
 import { FaUserCircle } from 'react-icons/fa';
 
@@ -35,15 +34,13 @@ const ProfileAvatar = () => {
                 </div> 
                 
                 <hr className='border-t my-4 border-gray-300'/>
-                <Link>
-                <a className="justify-between">
+                <Link to={'/profile'} className="justify-between">
                     Profile
-                </a>
                 </Link>
                 <hr className='border-t my-4 border-dashed border-gray-300'/>
-                <Link>Dashboard</Link>
+                <Link to={'/dashboard'}>Dashboard</Link>
                 <hr className='border-t my-4 border-dashed border-gray-300'/>
-                <Link><a>Settings</a></Link>
+                <Link to={'/setting'}>Settings</Link>
 
                 <hr className='border-t my-4 border-gray-300'/>
                                

@@ -10,6 +10,9 @@ import LoadingSpinner from '../components/ui/LoadingSpinner/LoadingSpinner';
 import Login from '../pages/Login/Login';
 import Registration from '../pages/Registration/Registration';
 import BlogDetails from '../pages/BlogDetails/BlogDetails';
+import Profile from '../pages/Profile.jsx/profile';
+import Dashboard from '../pages/Dashboard/Dashboard';
+import Setting from '../pages/Setting/Setting';
   
 
 export const router = createBrowserRouter([
@@ -38,6 +41,14 @@ export const router = createBrowserRouter([
           HydrateFallback: LoadingSpinner
         },
         {
+          path: '/dashboard',
+          Component: Dashboard
+        },
+        {
+          path: '/setting',
+          Component: Setting
+        },
+        {
           path: '/blogDetails/:id',
           Component: BlogDetails,
           loader: ()=>fetch('/blogs.json'),
@@ -56,7 +67,11 @@ export const router = createBrowserRouter([
         {
           path: '/registration',
           Component: Registration
-        }
+        },
+        {
+          path: '/profile',
+          Component: Profile
+        },
     ]
   },
 ]);
