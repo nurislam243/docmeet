@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+.plus-jakarta-sans{
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.dark-1{
+    color: #0F0F0F;
+}
+
+.dark-2{
+    color: rgba(15, 15, 15, 0.7);
+}
+
+.dark-3{
+    color: rgba(15, 15, 15, 1);
+}
+
+.primary-button{
+    background-color: #176AE5;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 99px;
+    padding: 14px 29px;
+    cursor: pointer;
+}
+
+.primary-button:hover{
+    background-color: #305486;
+}
+
+.primary-bg{
+    background-color: #EFEFEF;
+}
+
+
+.stroke-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 2px;
+    background-color: #d63a0f;
+    transition: width 0.5s ease;
+}
+  
+  .stroke-link:hover::after {
+    width: 100%;
+}
