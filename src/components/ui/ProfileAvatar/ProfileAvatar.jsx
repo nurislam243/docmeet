@@ -11,9 +11,9 @@ const ProfileAvatar = () => {
         <div className="flex gap-2">
             <div className="dropdown dropdown-end">
             <div tabIndex={0} role="" className="">
-                <div className="w-10 sm:w-11 lg:w-12 2xl:w-[51px] cursor-pointer  rounded-full">
+                <div className="cursor-pointer  rounded-full">
                     {
-                        user.photoURL? <img className='rounded-full outline-2 outline-[#176AE5]' src={ user.photoURL } alt="" /> : <FaUserCircle size={50} />
+                        user.photoURL? <img className='rounded-full outline-2 outline-[#176AE5] h-10 sm:h-11 lg:h-12 2xl:h-[51px] w-10 sm:w-11 lg:w-12 2xl:w-[51px]' src={ user.photoURL } alt="" /> : <FaUserCircle size={50} />
                     }
                     
                 </div>

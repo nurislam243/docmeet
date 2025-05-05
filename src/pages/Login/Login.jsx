@@ -1,5 +1,5 @@
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext';
@@ -7,7 +7,14 @@ import { AuthContext } from '../../contexts/AuthContext';
 
 const Login = () => {
     const [passwordEye, setPasswordEye] = useState(true)
-    const {handleLoginWithPassword, handleLoginGoogle, handleLoginTwitter} = useContext(AuthContext);
+    const {handleLoginWithPassword, handleLoginGoogle, handleLoginTwitter, handlePasswordReset} = useContext(AuthContext);
+    const emailRef = useRef();
+
+    const submitHandlePasswordReset = () =>{
+        const email = emailRef.current.value;
+        handlePasswordReset(email)
+    }
+
     const handleSubmitLoginWithPassword =(e)=>{
         e.preventDefault();
         const email = e.target.email.value;
@@ -45,19 +52,19 @@ const Login = () => {
                     <div className="space-y-4">
                         <div className="space-y-2">
                             <label htmlFor="email" className="block text-sm">Email address</label>
-                            <input type="email" name="email" id="email" placeholder="Your email address" className="w-full rounded-[99px] px-3 py-2 border dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
+                            <input type="email" name="email" id="email" ref={emailRef} placeholder="Your email address" className="w-full rounded-[99px] px-3 py-2 border dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
                         </div>
                         <div className="space-y-2">
                             <div className="flex justify-between">
                                 <label htmlFor="password" className="text-sm">Password</label>
-                                <a rel="noopener noreferrer" href="#" className="text-xs hover:underline dark:text-gray-600">Forgot password?</a>
+                                <a rel="noopener noreferrer" href="#" onClick={submitHandlePasswordReset} className="text-xs hover:underline dark:text-gray-600">Forgot password?</a>
                             </div>
                             <div className="relative">
                                 <input type={passwordEye ? "password" : "text"}  name="password" id="password" placeholder="Enter Password" className="w-full px-3 py-2 border  dark:border-gray-300 rounded-[99px] dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" autocomplete="current-password" />
                                 
                                 <span onClick={()=>setPasswordEye(!passwordEye)} className="absolute text-2xl mt-2 -ml-10">
                                     {
-                                       !passwordEye ? <FaEye /> : <FaEyeSlash/>
+                                       passwordEye ? <FaEye /> : <FaEyeSlash/>
                                     }
                                 </span>
                                 
